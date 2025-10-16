@@ -317,7 +317,15 @@ def extract_definitions_and_usepackage_lines(latex_source: str) -> list[str]:
     """
     Extracts definitions and usepackage lines from LaTeX source
     """
-    commands = ["\\def", "\\DeclareMathOperator", "\\DeclarePairedDelimiter"]
+    commands = [
+        "\\def",
+        "\\newcommand",
+        "\\renewcommand",
+        "\\providecommand",
+        "\\DeclareMathOperator",
+        "\\DeclarePairedDelimiter",
+        "\\DeclareDocumentCommand",
+    ]
     packages_to_comment_out = [
         "amsthm",
         "color",
@@ -327,6 +335,19 @@ def extract_definitions_and_usepackage_lines(latex_source: str) -> list[str]:
         "times",
         "graphicx",
         "enumitem",
+        "geometry",
+        "cleveref",
+        "footmisc",
+        "tabularray",
+        "environ",
+        "changepage",
+        "lineno",
+        "subcaption",
+        "nicefrac",
+        "titlesec",
+        "wrapfig",
+        "algpseudocode",
+        "algorithm",
     ]
     extracted_lines = []
 
